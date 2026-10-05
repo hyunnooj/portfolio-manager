@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Portfolio Manager 로그인</title></head>
+<body><main><h1>Portfolio Manager</h1><form method="post" action="/admin/login">
+<input type="hidden" name="csrf_token" value="{{ csrf }}">
+<label>관리자 비밀번호 <input name="password" type="password" autocomplete="current-password" required maxlength="1024"></label>
+<button type="submit">로그인</button></form></main></body></html>
