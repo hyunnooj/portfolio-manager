@@ -147,6 +147,6 @@ def test_https_cookie_and_http_remote_rejection():
     app.state.redis = fakeredis.FakeRedis(decode_responses=True)
     with TestClient(app, base_url="https://testserver") as client:
         assert "Secure" in client.get("/admin/login").headers["set-cookie"]
-    local = create_app(Settings(_env_file=None))
+    local = create_app(Settings(_env_file=None, app_env="local", public_origin="http://127.0.0.1"))
     with TestClient(local, base_url="http://127.0.0.1", client=("192.0.2.1", 123)) as client:
         assert client.get("/health/live").status_code == 403
